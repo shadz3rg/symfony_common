@@ -1,6 +1,6 @@
 Supported tags and respective Dockerfile links
 ==============================================
-`0.1` ([Dockerfile](https://github.com/shadz3rg/symfony_common/src/master/Dockerfile))
+`0.1` ([Dockerfile](https://raw.githubusercontent.com/shadz3rg/symfony_common/master/Dockerfile))
 
 Docker image with additions based on php:7.3-fpm
 ==========================================================
