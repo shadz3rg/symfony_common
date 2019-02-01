@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -y \
         pdo_mysql \
         pdo_pgsql \
         pcntl \
+        bcmath \
     && docker-php-ext-enable \
         gd \
         zip \
@@ -26,7 +27,8 @@ RUN apt-get update && apt-get install -y \
         pdo \
         pdo_mysql \
         pdo_pgsql \
-        pcntl
+        pcntl \
+        bcmath
 
 RUN pecl install mongodb && echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/mongodb.ini
 
