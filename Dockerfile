@@ -9,6 +9,8 @@ RUN apt-get update && apt-get install -y \
         libpq-dev \
         libpng-dev \
         libzip-dev \
+        librabbitmq-dev \
+        libssh-dev \
     && docker-php-ext-install \
         gd \
         zip \
@@ -19,6 +21,7 @@ RUN apt-get update && apt-get install -y \
         pdo_pgsql \
         pcntl \
         bcmath \
+        sockets \
     && docker-php-ext-enable \
         gd \
         zip \
@@ -28,8 +31,10 @@ RUN apt-get update && apt-get install -y \
         pdo_mysql \
         pdo_pgsql \
         pcntl \
-        bcmath
+        bcmath \
+        sockets
 
+RUN pecl install amqp && docker-php-ext-enable amqp
 RUN pecl install mongodb && echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/mongodb.ini
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
