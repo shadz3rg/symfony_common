@@ -4,6 +4,8 @@ FROM php:7.2-fpm
 RUN apt-get update && apt-get install -y \
         libssl1.0-dev \
         openssl \
+        openssh-client \
+        rsync \
         unzip \
         libicu-dev \
         libpq-dev \
@@ -39,6 +41,9 @@ RUN pecl install mongodb && echo "extension=mongodb.so" >> /usr/local/etc/php/co
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && composer --version
+    
+RUN composer global require deployer/deployer
+RUN composer global require deployer/recipes --dev
     
 # Сахар для терминала
 RUN echo 'alias sf="php bin/console"' >> ~/.bashrc
