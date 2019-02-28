@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
         libzip-dev \
         librabbitmq-dev \
         libssh-dev \
+        git \
     && docker-php-ext-install \
         gd \
         zip \
