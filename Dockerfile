@@ -2,7 +2,7 @@ FROM php:7.2-fpm
 
 # Устанавливаем расширения PHP
 RUN apt-get update && apt-get install -y \
-        libssl1.0-dev \
+        libssl-dev \
         openssl \
         openssh-client \
         rsync \
