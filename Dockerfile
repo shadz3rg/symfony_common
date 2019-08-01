@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y \
         librabbitmq-dev \
         libssh-dev \
         git \
+        graphviz \
     && docker-php-ext-install \
         gd \
         zip \
