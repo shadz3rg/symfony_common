@@ -43,6 +43,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN pecl install amqp && docker-php-ext-enable amqp
 RUN pecl install mongodb && echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/mongodb.ini
+RUN pecl install redis && docker-php-ext-enable redis
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && composer --version
