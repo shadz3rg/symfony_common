@@ -50,7 +50,11 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
     
 RUN composer global require deployer/deployer
 RUN composer global require deployer/recipes --dev
-    
+
+RUN curl -sS https://get.symfony.com/cli/installer | bash \
+    && mv /root/.symfony/bin/symfony /usr/local/bin/symfony \
+    && symfony -V
+
 # Сахар для терминала
 RUN echo 'alias sf="php bin/console"' >> ~/.bashrc
 
