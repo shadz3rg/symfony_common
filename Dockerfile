@@ -28,6 +28,7 @@ RUN apt-get update && apt-get install -y \
         bcmath \
         sockets \
         soap \
+        exif \
     && docker-php-ext-enable \
         gd \
         zip \
@@ -39,7 +40,8 @@ RUN apt-get update && apt-get install -y \
         pcntl \
         bcmath \
         sockets \
-        soap
+        soap \
+        exif
 
 RUN pecl install amqp && docker-php-ext-enable amqp
 RUN pecl install mongodb && echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/mongodb.ini
