@@ -49,9 +49,6 @@ RUN pecl install redis && docker-php-ext-enable redis
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && composer --version
-    
-RUN composer global require deployer/deployer
-RUN composer global require deployer/recipes --dev
 
 RUN curl -sS https://get.symfony.com/cli/installer | bash \
     && mv /root/.symfony/bin/symfony /usr/local/bin/symfony \
