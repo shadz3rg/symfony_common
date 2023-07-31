@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y \
         libxml2-dev \
         git \
         graphviz \
+        libxslt1-dev \
     && docker-php-ext-install \
         gd \
         zip \
@@ -29,6 +30,8 @@ RUN apt-get update && apt-get install -y \
         sockets \
         soap \
         exif \
+        xml \
+        xsl \
     && docker-php-ext-enable \
         gd \
         zip \
@@ -41,7 +44,9 @@ RUN apt-get update && apt-get install -y \
         bcmath \
         sockets \
         soap \
-        exif
+        exif \
+        xml \
+        xsl
 
 RUN pecl install amqp && docker-php-ext-enable amqp
 RUN pecl install mongodb && echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/mongodb.ini
